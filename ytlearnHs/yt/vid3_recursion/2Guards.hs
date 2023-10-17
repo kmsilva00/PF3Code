@@ -1,6 +1,6 @@
 -- guards , if else
 -- otherwise , constant always true
-
+-- predicate, fn always returns bool
 
 fac n
     | n <= 1 = 1
