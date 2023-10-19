@@ -1,2 +1,2 @@
 evenx :: Integral a => a -> Bool
-even n = n ´mod´ 2 == 0
+evenx n = n ´mod´ 2 == 0
