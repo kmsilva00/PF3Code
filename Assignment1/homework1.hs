@@ -1,5 +1,6 @@
 import System.Win32 (xBUTTON1)
 import Distribution.Simple.Test (test)
+import qualified GHC.TypeLits as steps
 --1------------------------------------------------------------------
 collatzStep :: Int -> Int
 collatzStep n = if even n then
@@ -84,5 +85,53 @@ testB4 = goToBed [(0, 00), (0, 55)] 45 == (0, 0)
 
 --Problem C----------------------------------------------------------
 
--- hanoi :: Int -> Int
--- hanoi 1 = 1
+--
+{- 
+I will use a diagram to explain why a tower of hanoi requires 2^n - 1 steps.(*)
+
+Nomenclature :
+
+n refers to the number of disks
+We will name the pegs A, B, C
+the order in which the pegs are written matters; 
+    from left to right, they indicate the position of the smallest to biggest disk
+    example : AAA would mean smallest,medium and large disk are on peg at position A
+              ABC would mean smallest disk in A, medium disk in B, largest disk in C 
+
+The fastest methodology to solve the puzzle with n=1 would be :
+A -> B
+
+=> 0 step, nothing has to be done
+
+
+The fastest methodology to solve the puzzle with n=2 would be :
+
+AA -> BA -> BC -> CC 
+Alternativly
+AA -> CA -> CB -> CC 
+
+=> 3 steps 
+    ( AA is already given state so AA is not included as a step as nothing needs to happen for the state to be AA)
+
+The fastest methodology to solve the puzzle with n=3 would be :
+
+AAA -> BAA -> BCA -> CCA -> CCB -> ACB -> ABB -> BBB 
+Alternativly
+AAA -> CAA ->CBA -> BBA -> BBC -> ABC -> ACC -> CCC
+
+Of course there are other solutions, but these are the less step intensive ones for n = 3
+
+we can see that the number of steps for n = 3, is 8 = 2^3. 
+
+However, again, the position AAA is always given as a start point so we must substract 1
+
+n=  1 | steps = 0
+n =
+
+=> 2^n - 1
+
+
+-}
+
+
+
