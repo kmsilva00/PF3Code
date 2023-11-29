@@ -114,5 +114,5 @@ balanceFactor (Node _ l r) = (height l) - (height r)
 rotateLeft :: BTree a -> BTree a
 rotateLeft (Node x t1 ( Node y t2 t3 )) = Node y (Node x t1 t2) t3
 
-rotateRight :: BTree a -> BTree a   
+-- rotateRight :: BTree a -> BTree a   
 
